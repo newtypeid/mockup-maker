@@ -1,8 +1,12 @@
-import * as React from "react";
+import * as React from 'react';
 
 class App extends React.Component {
   render() {
-    return <div>helloWorld~!!!!!!!</div>;
+    return (
+      <div>
+        helloWorld~!!!!!!!<div>πsdf</div>
+      </div>
+    );
   }
 }
 
