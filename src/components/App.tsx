@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 interface IProps {
   count: number;
-  onAdd: any;
-  onSub: any;
+  onAdd: (string) => void;
+  onSub: (string) => void;
 }
 class App extends React.Component<IProps> {
   render() {
@@ -35,10 +35,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (Dispatch) => {
   return {
     onAdd: (id) => {
-      return Dispatch(addCount({ id: '' }));
+      return Dispatch(addCount({ id }));
     },
     onSub: (id) => {
-      return Dispatch(subCount({ id: '' }));
+      return Dispatch(subCount({ id }));
     },
   };
 };
