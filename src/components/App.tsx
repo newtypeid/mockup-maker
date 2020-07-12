@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { addCount, subCount } from '../action';
 import { connect } from 'react-redux';
+import { addCount, subCount } from '../action';
 
 interface IProps {
   count: number;
