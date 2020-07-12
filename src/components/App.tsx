@@ -1,13 +1,14 @@
 import * as React from 'react';
 import './App.scss';
 import { BodyComponent } from './body';
-import { HeaderComponent } from './header';
+import { LayoutComponent } from './Layout';
 class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <HeaderComponent />
-        <BodyComponent />
+        <LayoutComponent>
+          <BodyComponent />
+        </LayoutComponent>
       </div>
     );
   }

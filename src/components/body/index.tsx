@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './body.scss';
+import './index.scss';
 export const BodyComponent = () => (
   <div className="body_container">
     <div className="box_header">box header</div>
