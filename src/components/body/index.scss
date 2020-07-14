@@ -1,0 +1,32 @@
+.body_container {
+  flex: 13;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: green;
+  .box_header {
+    flex: 1;
+    margin: 80px 80px 10px 80px;
+    background-color: brown;
+  }
+  .box_container {
+    flex: 9;
+    height: 500px;
+    min-width: 270px;
+    margin: 0 80px 80px 80px;
+    display: flex;
+    justify-content: space-between;
+    .left_box {
+      flex: 9;
+      background-color: yellow;
+    }
+    .center_box {
+      flex: 1;
+      background-color: blueviolet;
+    }
+    .right_box {
+      flex: 9;
+      background-color: yellowgreen;
+    }
+  }
+}
