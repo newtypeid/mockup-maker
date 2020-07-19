@@ -1,17 +1,18 @@
 import * as React from 'react';
-import logo from '../../assets/logo.png';
 import './index.scss';
 
 interface IProps {
   children: any;
 }
-
-export const LayoutComponent = ({ children }: IProps) => (
-  <div className="header_container">
-    <div className="header_inner">
-      <img src={logo} alt="" />
-      <h2>Mockup Maker</h2>
+const LOGO_PATH = 'src/assets/logo.png';
+export const LayoutComponent = ({ children }: IProps) => {
+  return (
+    <div className="header_container">
+      <div className="header_inner">
+        <img src={LOGO_PATH} alt="" />
+        <h2>Mockup Maker</h2>
+      </div>
+      {children}
     </div>
-    {children}
-  </div>
-);
+  );
+};
