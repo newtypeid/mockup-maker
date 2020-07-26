@@ -1,4 +1,4 @@
-const VAILD_HEADER_INPUT = 'interface';
+const VALID_HEADER_INPUT = 'interface';
 
 const removeBlank = (input: string): string => {
   return input.replace(/(^\s*)|(\s*$)/gi, '');
@@ -40,7 +40,7 @@ const isValidHeaderStr = (nameStr: string): boolean => {
   const interfaceHeader = nameArr.shift();
   const interfaceName = nameArr.pop();
 
-  return VAILD_HEADER_INPUT === interfaceHeader && !!interfaceName;
+  return VALID_HEADER_INPUT === interfaceHeader && !!interfaceName;
 };
 
 // [isValidTypesStr() 동작 설명] ex) typesStr: '{ name : string;  age:number; }'
@@ -73,7 +73,7 @@ const isValidTypesStr = (typesStr: string): boolean => {
 // 3. 헤더 부분의 문자열에서 앞뒤 공백을 자른 후, 중간의 공백을 기준으로 배열로 나눈다.
 // 4. 배열 맨 앞 요소는 'interface' 문자열, 배열 맨 뒤 요소는 선언한 인터페이스 명으로 지칭한다.
 
-export const verifyInputData = (input: string): boolean => {
+const verifyInputData = (input: string): boolean => {
   input = removeBlank(input);
 
   const indexOfStartingType = input.indexOf('{');
@@ -83,3 +83,16 @@ export const verifyInputData = (input: string): boolean => {
 
   return isValidHeaderStr(nameStr) && isValidTypesStr(typesStr);
 };
+
+const parseString = (input: string): string[] => {
+  const blankRemovedInput = removeBlank(input);
+  const indexOfStartingType = blankRemovedInput.indexOf('{');
+  let typesStr = blankRemovedInput.substr(indexOfStartingType, input.length);
+  typesStr = removeBrackets(removeBlankAll(typesStr));
+  const typeInfos = typesStr.split(';');
+  typeInfos.pop();
+
+  return typeInfos;
+};
+
+export default { parseString, verifyInputData };

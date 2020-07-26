@@ -1,0 +1,82 @@
+import types from '../types/type.const';
+import { splitTypeGroup } from '../types/variable';
+/*
+ * exampleData와 같은 꼴의 배열을 아래와 같이 분리해주는 함수
+ * {
+ *   boolean: [ 'boolean1' ],
+ *   number: [ 'number1', 'number2' ],
+ *   string: [ 'string1', 'string2' ],
+ *   array: [ 'array1' ],
+ *   numArray: [ 'array2' ],
+ *   strArray: [ 'array3' ],
+ *   boolArray: [],
+ *   any: [ 'any1' ]
+ * }
+ 
+ * const exampleData = [
+ * 'boolean1:boolean',
+ * 'number1:number',
+ * 'number2:number',
+ * 'string1:string',
+ * 'string2:string',
+ * 'array1:[]',
+ * 'array2:number[]',
+ * 'array3:Array<string>',
+ * 'any1:any',
+ * ];
+ */
+
+const splitTypes = (input: string[]): splitTypeGroup => {
+  const typeGroup = {
+    boolean: [],
+    number: [],
+    string: [],
+    array: [],
+    numArray: [],
+    strArray: [],
+    boolArray: [],
+    any: [],
+    object: [],
+  };
+  input.forEach((element) => {
+    const elementKey = element.split(':')[0];
+    const elementValue = unifyType(element.split(':')[1]);
+
+    typeGroup[elementValue].push(elementKey);
+  });
+
+  return typeGroup;
+};
+
+const unifyType = (input: string): string => {
+  switch (input) {
+    case types.STRING:
+      return types.STRING;
+    case types.NUMBER:
+      return types.NUMBER;
+    case types.BOOLEAN:
+      return types.BOOLEAN;
+    case types.ARRAY:
+      return types.ARRAY;
+    case types.ANY:
+      return types.ANY;
+    case '[]':
+      return types.ARRAY;
+    case 'number[]':
+      return 'numArray';
+    case 'Array<number>':
+      return 'numArray';
+    case 'string[]':
+      return 'strArray';
+    case 'Array<string>':
+      return 'strArray';
+    case 'boolean[]':
+      return 'boolArray';
+    case 'Array<boolean>':
+      return 'boolArray';
+    default:
+      return types.OBJECT;
+  }
+};
+
+export { splitTypes };

@@ -1,4 +1,5 @@
-import { verifyInputData } from './validationData';
+import validationData from './validationData';
+const verifyInputData = validationData.verifyInputData;
 
 test('올바른 인터페이스 형태 검사1', () => {
   const result = verifyInputData('interface User {name:string;}');
