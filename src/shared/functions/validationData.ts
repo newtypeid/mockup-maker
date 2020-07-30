@@ -1,4 +1,4 @@
-import {unifyType} from './splitTypes'
+import { unifyType } from './splitTypes';
 
 const VALID_HEADER_INPUT = 'interface';
 
@@ -108,8 +108,8 @@ const extractTypes = (input: string): string[] => {
  * extractTypes()에서 추출한 타입들이 올바른지 확인하는 함수
  * 올바르지 못한 타입명들 반환
  */
-const checkExtractedTypes = (input: string[]): string[] {
-  return input.filter(type => unifyType(type) === 'unknown')
-}
+const checkExtractedTypes = (input: string[]): string[] => {
+  return input.filter((type) => unifyType(type) === 'unknown');
+};
 
 export default { parseString, verifyInputData };
