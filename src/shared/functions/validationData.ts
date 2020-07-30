@@ -95,4 +95,11 @@ const parseString = (input: string): string[] => {
   return typeInfos;
 };
 
+/*
+ * string 으로 들어온 interface의 type들만 추출하는 함수
+ */
+const extractTypes = (input: string): string[] => {
+  return parseString(input).map((value): string => value.slice(value.indexOf(':' + 1)));
+};
+
 export default { parseString, verifyInputData };
