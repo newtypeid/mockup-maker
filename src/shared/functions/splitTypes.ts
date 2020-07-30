@@ -37,6 +37,7 @@ const splitTypes = (input: string[]): splitTypeGroup => {
     boolArray: [],
     any: [],
     object: [],
+    unknown: [],
   };
   input.forEach((element) => {
     const elementKey = element.split(':')[0];
@@ -75,8 +76,8 @@ const unifyType = (input: string): string => {
     case 'Array<boolean>':
       return 'boolArray';
     default:
-      return types.OBJECT;
+      return input[0] === '{' ? types.OBJECT : 'unknown';
   }
 };
 
-export { splitTypes };
+export { splitTypes, unifyType };
