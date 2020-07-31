@@ -3,6 +3,13 @@ export default {
   NUMBER: 'number',
   BOOLEAN: 'boolean',
   ARRAY: 'array',
+  ARRAY2: '[]',
+  NUM_ARRAY: 'Array<number>',
+  NUM_ARRAY2: 'number[]',
+  STRING_ARRAY: 'Array<string>',
+  STRING_ARRAY2: 'string[]',
+  BOOLEAN_ARRAY: 'Array<boolean>',
+  BOOLEAN_ARRAY2: 'boolean[]',
   ANY: 'any',
   OBJECT: 'object',
 };

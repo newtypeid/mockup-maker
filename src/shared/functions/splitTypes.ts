@@ -61,19 +61,19 @@ const unifyType = (input: string): string => {
       return types.ARRAY;
     case types.ANY:
       return types.ANY;
-    case '[]':
+    case types.ARRAY2:
       return types.ARRAY;
-    case 'number[]':
+    case types.NUM_ARRAY:
       return 'numArray';
-    case 'Array<number>':
+    case types.NUM_ARRAY2:
       return 'numArray';
-    case 'string[]':
+    case types.STRING_ARRAY:
       return 'strArray';
-    case 'Array<string>':
+    case types.STRING_ARRAY2:
       return 'strArray';
-    case 'boolean[]':
+    case types.BOOLEAN_ARRAY:
       return 'boolArray';
-    case 'Array<boolean>':
+    case types.BOOLEAN_ARRAY2:
       return 'boolArray';
     default:
       return input[0] === '{' ? types.OBJECT : 'unknown';
